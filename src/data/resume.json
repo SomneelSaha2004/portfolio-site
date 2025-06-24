@@ -1,0 +1,85 @@
+{
+  "name": "Somneel Kumar Saha",
+  "title": "B.Comp (CS, AI & DB Systems) • ML & Software Engineer Intern",
+  "contacts": {
+    "email": "e1129797@u.nus.edu",
+    "linkedin": "https://linkedin.com/in/SomneelSaha2004",
+    "github": "https://github.com/SomneelSaha2004",
+    "phone": "+65 9673 6925"
+  },
+  "education": [
+    {
+      "institution": "National University of Singapore (NUS)",
+      "degree": "B.Comp (Computer Science – AI & Database Systems)",
+      "period": "2023 – May 2027 (Expected)",
+      "gpa": "4.03/5.0"
+    },
+    {
+      "institution": "The Shri Ram School – Aravali, India",
+      "degree": "ISC: 97.5% (2023); ICSE: 98% (2021)"
+    }
+  ],
+  "experience": [
+    {
+      "company": "MathLogic Consulting, Gurgaon",
+      "role": "Machine Learning Intern",
+      "period": "May 2025 – Present",
+      "details": [
+        "Researching tabular-data applications of Transformer architectures (e.g., TabPFN, TabICL)…",
+        "Perform decile-based calibration & performance analysis…"
+      ]
+    },
+    {
+      "company": "MathLogic Consulting, Gurgaon",
+      "role": "Data Science Intern",
+      "period": "Dec 2024 – Jan 2025",
+      "details": [
+        "Built ML pipelines for farmland segmentation using satellite imagery…",
+        "Engineered spectral & textural features for improved segmentation accuracy…"
+      ]
+    },
+    {
+      "company": "ContractKen Inc., Bangalore",
+      "role": "Software Engineering Intern",
+      "period": "May 2024 – Jul 2024",
+      "details": [
+        "Developed React/Node multi-threaded bulk-upload module (100+ PDFs)…",
+        "Reduced client ingestion time from 2 h → 15 min."
+      ]
+    },
+    {
+      "company": "ContractKen Inc., Bangalore",
+      "role": "NLP Research Intern",
+      "period": "May 2022 – Jul 2022",
+      "details": [
+        "Evaluated LexNLP for named entity recognition on contracts…"
+      ]
+    }
+  ],
+  "skills": {
+    "languages": ["Python", "Java", "SQL", "C++"],
+    "frameworks": ["PyTorch", "Pandas", "Spark", "Hadoop", "React.js"],
+    "tools": ["Git", "PostgreSQL", "Linux", "Windows PowerShell"]
+  },
+  "projects": [
+    {
+      "name": "MedGen",
+      "period": "Jan 2025 – Apr 2025",
+      "description": "LLM-guided synthetic diabetes dataset generation; ensured privacy & feature-dependency preservation. :contentReference[oaicite:0]{index=0}"
+    },
+    {
+      "name": "FitFriends",
+      "period": "Jan 2025 – Apr 2025",
+      "description": "Cross-platform fitness-management desktop app to organize group sports activities. :contentReference[oaicite:1]{index=1}"
+    }
+  ],
+  "honors": [
+    "Chairperson, Ad-Hoc National Security Cabinet @ Aravali Model UN 2020",
+    "Best Delegate @ Le Martiniere Model UN (Nov 2020)",
+    "Best Delegate @ Bhavan Vidyalaya Chandigarh Model UN (Jun 2020)"
+  ],
+  "extracurricular": [
+    "NUS Sheares Hall – Squash & Softball (’23/’24, ’24/’25)",
+    "North West ISC Regional Cricket Team (’19/’20)"
+  ]
+}
