@@ -5,7 +5,6 @@ import CombinedTimeline from './components/Timeline';
 import Projects from './components/Projects';
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 import BackToTop from './components/BackToTop';
 import Box from '@mui/material/Box';
 
@@ -179,7 +178,6 @@ const App: React.FC = () => {
             color: 'black',
             scrollSnapAlign: 'start', // Snap to this section
             minHeight: '100vh', // At least full viewport height
-            mb: 6
           }}
         >
           <Contact />

@@ -38,8 +38,8 @@ const NavBar: React.FC = () => {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', py: 3 }}>
-      <Typography variant="h6" sx={{ my: 3, fontWeight: 700, fontSize: '1.7rem' }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', py: 2 }}>
+      <Typography variant="h6" sx={{ my: 2, fontWeight: 700 }}>
         Somneel Kumar Saha
       </Typography>
       <List>
@@ -48,14 +48,13 @@ const NavBar: React.FC = () => {
             <ListItemButton 
               sx={{ 
                 textAlign: 'center',
-                py: 2.5,
-                fontSize: '1.3rem'
+                py: 1.5
               }}
               href={`#${section.toLowerCase()}`}
             >
               <ListItemText 
                 primary={section} 
-                primaryTypographyProps={{ fontWeight: 600, fontSize: '1.3rem' }}
+                primaryTypographyProps={{ fontWeight: 600 }}
               />
             </ListItemButton>
           </ListItem>
@@ -65,102 +64,101 @@ const NavBar: React.FC = () => {
   );
 
   return (
-    <>
-      {/* Spacer to prevent content from hiding behind fixed navbar */}
-      <Box sx={{ height: { xs: '70px', md: '90px' } }} />        <AppBar
-        position="fixed"
-        elevation={solid ? 6 : 2}
-        color="transparent"
-        sx={{
-          backgroundColor: '#000000', // Pure black background
-          borderBottom: `1px solid ${alpha('#ffffff', 0.1)}`,
-          transition: 'all 0.3s ease',
-          zIndex: theme.zIndex.drawer + 1,
-          boxShadow: solid ? '0 4px 20px rgba(0,0,0,0.3)' : '0 2px 10px rgba(0,0,0,0.2)'
+    <AppBar
+      position="sticky"
+      elevation={solid ? 4 : 0}
+      color="transparent"
+      sx={{
+        backgroundColor: solid ? 
+          alpha(theme.palette.background.default, 0.9) : 
+          'transparent',
+        backdropFilter: solid ? 'blur(10px)' : 'none',
+        borderBottom: solid ? `1px solid ${alpha(theme.palette.divider, 0.1)}` : 'none',
+        transition: 'all 0.3s ease'
+      }}
+    >
+      <Toolbar 
+        sx={{ 
+          justifyContent: 'space-between',
+          maxWidth: '1800px',
+          width: '100%',
+          mx: 'auto',
+          px: { xs: 2, md: 4 },
+          py: { xs: 1, md: 1.5 }
         }}
       >
-        <Toolbar 
+        <Typography 
+          variant="h6" 
           sx={{ 
-            justifyContent: 'space-between',
-            maxWidth: '1900px',
-            width: '100%',
-            mx: 'auto',
-            px: { xs: 2, md: 6 },
-            py: { xs: 1.5, md: 2.5 }
-          }}
-        >          <Typography 
-            variant="h6" 
-            sx={{ 
-              fontWeight: 800,
-              letterSpacing: '-0.02em',
-              fontSize: { xs: '1.5rem', md: '1.8rem' },
-              color: '#ffffff' // White text color
-            }}
-          >
-            Somneel Kumar Saha
-          </Typography>
-          
-          {/* Mobile menu button */}
-          {isMobile ? (
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="end"
-              onClick={handleDrawerToggle}              sx={{ 
-                display: { md: 'none' },
-                color: '#ffffff', // White icon
-                fontSize: '2rem',
-                padding: '12px'
-              }}
-            >
-              <MenuIcon fontSize="large" />
-            </IconButton>
-          ) : (
-            <Box sx={{ display: 'flex', gap: { xs: 0, md: 2 } }}>
-              {sections.map(section => (
-                <Button 
-                  key={section} 
-                  color="inherit" 
-                  href={`#${section.toLowerCase()}`}
-                  sx={{ 
-                    mx: { xs: 0.5, md: 1.5 },
-                    px: { xs: 2, md: 3 },
-                    py: { xs: 1, md: 1.5 },
-                    fontSize: { xs: '1rem', md: '1.2rem' },                    fontWeight: 600,
-                    color: '#ffffff', // White text
-                    borderRadius: '10px',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    '&:hover': {
-                      backgroundColor: alpha('#6366f1', 0.2), // Purple hover effect
-                      transform: 'translateY(-3px)',
-                      transition: 'all 0.3s ease'
-                    },
-                    transition: 'all 0.3s ease'
-                  }}
-                >
-                  {section}
-                </Button>
-              ))}
-            </Box>
-          )}
-        </Toolbar>
-
-        {/* Mobile drawer */}
-        <Drawer
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{ keepMounted: true }}
-          sx={{
-            display: { xs: 'block', md: 'none' },
-            '& .MuiDrawer-paper': { width: 320 },
+            fontWeight: 700,
+            letterSpacing: '-0.02em',
+            fontSize: { xs: '1.3rem', md: '1.5rem' },
+            color: '#333333'
           }}
         >
-          {drawer}
-        </Drawer>
-      </AppBar>
-    </>
+          Somneel Kumar Saha
+        </Typography>
+        
+        {/* Mobile menu button */}
+        {isMobile ? (
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="end"
+            onClick={handleDrawerToggle}
+            sx={{ 
+              display: { md: 'none' },
+              color: theme.palette.text.primary
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
+        ) : (
+          <Box sx={{ display: 'flex', gap: { xs: 0, md: 1 } }}>
+            {sections.map(section => (
+              <Button 
+                key={section} 
+                color="inherit" 
+                href={`#${section.toLowerCase()}`}
+                sx={{ 
+                  mx: { xs: 0.5, md: 1 },
+                  px: { xs: 1.5, md: 2.5 },
+                  py: { xs: 0.75, md: 1 },
+                  fontSize: { xs: '0.9rem', md: '1rem' },
+                  fontWeight: 600,
+                  color: '#333333',
+                  borderRadius: '10px',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  '&:hover': {
+                    backgroundColor: alpha("#007BFF", 0.08),
+                    transform: 'translateY(-3px)',
+                    transition: 'all 0.3s ease'
+                  },
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                {section}
+              </Button>
+            ))}
+          </Box>
+        )}
+      </Toolbar>
+
+      {/* Mobile drawer */}
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{ keepMounted: true }}
+        sx={{
+          display: { xs: 'block', md: 'none' },
+          '& .MuiDrawer-paper': { width: 320 },
+        }}
+      >
+        {drawer}
+      </Drawer>
+    </AppBar>
   );
 };
 

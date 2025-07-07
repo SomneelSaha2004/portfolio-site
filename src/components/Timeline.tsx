@@ -14,9 +14,9 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
-import { useTheme, alpha } from '@mui/material/styles';
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
+import { useTheme } from '@mui/material/styles';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 // Education data
 const educationData = [
@@ -26,6 +26,7 @@ const educationData = [
     period: '2023 – May 2027 (Expected)',
     gpa: '4.03/5.0',
     year: 2023,
+    coursework: 'Foundations of Machine Learning, Linear Algebra, Data Structures and Algorithms, Database Systems, Software Engineering, Operating Systems, Big Data Systems'
   },
   {
     institution: 'The Shri Ram School – Aravali, India',
@@ -43,41 +44,41 @@ const experienceData = [
     period: 'May 2025 – Present',
     year: 2025,
     details: [
-      'Researched transformer architectures for tabular data with 28% accuracy gain',
-      'Built calibration pipelines reducing error by 15% in production models',
-      'Deployed 3 ML models to production with CI/CD integration'
+      'Conducted research on transformer-based models for tabular data, focusing on their efficiency in capturing 2-D dependencies, optimizing inference speed, and improving prediction accuracy',
+      'Developied and optimized machine learning models using AutoGluon and Optuna for tabular data, focusing on performance tuning, hyperparameter optimization, and ensemble methods.',
     ]
   },
   {
     company: 'MathLogic Consulting, Gurgaon',
     role: 'Data Science Intern',
     period: 'Dec 2024 – Jan 2025',
-    year: 2024.99,
+    year: 2024,
     details: [
-      'Built satellite imagery ML pipeline with 92% farmland segmentation accuracy',
-      'Created 8 novel features improving classification by 17%'
+      'Built ML pipelines for farmland segmentation using satellite imagery',
+      'Engineered spectral and textural features for improved segmentation accuracy'
     ]
   },
   {
     company: 'ContractKen Inc., Bangalore',
     role: 'Software Engineering Intern',
     period: 'May 2024 – Jul 2024',
-    year: 2024.5,
+    year: 2024,
     details: [
-      'Developed high-speed PDF processor reducing ingestion time by 87%',
-      'Built React component handling 100+ concurrent document uploads'
+      'Developed React/Node multi-threaded bulk-upload module handling 100+ PDFs',
+      'Reduced client ingestion time from 2h to 15min by optimizing backend processes'
     ]
   },
   {
     company: 'ContractKen Inc., Bangalore',
     role: 'NLP Research Intern',
     period: 'May 2022 – Jul 2022',
-    year: 2022.5,
+    year: 2022,
     details: [
-      'Evaluated LexNLP achieving 83% accuracy for legal entity recognition'
+      'Evaluated LexNLP for named entity recognition on legal contracts'
     ]
   }
 ];
+
 
 // Combined and sorted timeline items
 type TimelineItemType = 
@@ -179,77 +180,26 @@ const CombinedTimeline: React.FC = () => {
             mb: 5,
             justifyContent: 'flex-start',  // Always left-aligned
           }}
-        >          <ButtonGroup 
-            variant="outlined" 
-            aria-label="timeline view toggle" 
-            sx={{ 
-              borderRadius: '2px',
-              border: '1px solid #000000',
-              overflow: 'hidden'
+        >          <ToggleButtonGroup 
+            value={activeView}
+            exclusive
+            onChange={(_, newView) => {
+              if (newView !== null) {
+                setActiveView(newView);
+              }
             }}
-          ><Button
-              startIcon={<WorkIcon />}
-              onClick={() => setActiveView('experience')}
-              sx={{
-                px: { xs: 2, md: 3 },
-                py: 1.5,
-                fontSize: { xs: '0.9rem', md: '1rem' },
-                fontWeight: 600,
-                backgroundColor: 'transparent',
-                color: '#000000',
-                borderColor: '#000000',
-                position: 'relative',
-                '&::after': {
-                  content: '""',
-                  position: 'absolute',
-                  width: '90%',
-                  height: '3px',
-                  bottom: '0',
-                  left: '5%',
-                  backgroundColor: '#000000',
-                  opacity: activeView === 'experience' ? 1 : 0,
-                  transition: 'opacity 0.3s ease'
-                },
-                '&:hover': {
-                  backgroundColor: alpha('#000000', 0.05),
-                  borderColor: '#000000',
-                }
-              }}
-            >
+            aria-label="timeline view toggle"
+            sx={{ gap: 2 }}
+          >
+            <ToggleButton value="experience" aria-label="experience">
+              <WorkIcon sx={{ mr: 1 }} />
               Experience
-            </Button>
-            <Button
-              startIcon={<SchoolIcon />}
-              onClick={() => setActiveView('education')}
-              sx={{
-                px: { xs: 2, md: 3 },
-                py: 1.5,
-                fontSize: { xs: '0.9rem', md: '1rem' },
-                fontWeight: 600,
-                backgroundColor: 'transparent',
-                color: '#000000',
-                borderColor: '#000000',
-                position: 'relative',
-                '&::after': {
-                  content: '""',
-                  position: 'absolute',
-                  width: '90%',
-                  height: '3px',
-                  bottom: '0',
-                  left: '5%',
-                  backgroundColor: '#000000',
-                  opacity: activeView === 'education' ? 1 : 0,
-                  transition: 'opacity 0.3s ease'
-                },
-                '&:hover': {
-                  backgroundColor: alpha('#000000', 0.05),
-                  borderColor: '#000000',
-                }
-              }}
-            >
+            </ToggleButton>
+            <ToggleButton value="education" aria-label="education">
+              <SchoolIcon sx={{ mr: 1 }} />
               Education
-            </Button>
-          </ButtonGroup>
+            </ToggleButton>
+          </ToggleButtonGroup>
         </Box>
       </Box>      <MuiTimeline position="alternate" sx={{ p: { xs: 0, md: 0 }, m: 0, width: '100%' }}>
         {filteredItems.map((item, index) => (
@@ -380,6 +330,19 @@ const CombinedTimeline: React.FC = () => {
                       item.role
                     )}
                   </Typography>
+                    {item.type === 'education' && item.coursework && (
+                      <Typography 
+                        variant="body2" 
+                        sx={{ 
+                          mt: 1.5, 
+                          fontWeight: 500, 
+                          fontSize: { xs: '1rem', md: '1.1rem' },
+                          color: '#333333'
+                        }}
+                      >
+                        <strong>Relevant Coursework:</strong> {item.coursework}
+                      </Typography>
+                    )}
                     {item.type === 'experience' && (
                     <Box 
                       component="ul" 

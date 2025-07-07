@@ -20,37 +20,32 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Languages",
     items: [
-      { name: 'JavaScript', logo: '/images/skills/javascript.svg' },
-      { name: 'TypeScript', logo: '/images/skills/typescript.svg' },
       { name: 'Python', logo: '/images/skills/python.svg' },
       { name: 'Java', logo: '/images/skills/java.svg' },
       { name: 'SQL', logo: '/images/skills/sql.svg' },
       { name: 'C++', logo: '/images/skills/cpp.svg' },
+      { name: 'TypeScript', logo: '/images/skills/typescript.svg' },
+      { name: 'JavaScript', logo: '/images/skills/javascript.svg' },
     ]
   },
   {
-    title: "Frontend Frameworks",
+    title: "Frameworks/Libraries",
     items: [
-      { name: 'React', logo: '/images/skills/react.svg' },
-      { name: 'Next.js', logo: '/images/skills/nextjs.svg' },
-      { name: 'Tailwind', logo: '/images/skills/tailwind.svg' },
+      { name: 'PyTorch', logo: '/images/skills/pytorch.svg' },
+      { name: 'Pandas', logo: '/images/skills/pandas.svg' },
+      { name: 'Spark', logo: '/images/skills/spark.svg' },
+      { name: 'Hadoop', logo: '/images/skills/hadoop.svg' },
+      { name: 'React.js', logo: '/images/skills/react.svg' },
+      { name: 'Vite', logo: '/vite.svg' },
     ]
   },
   {
-    title: "Backend Frameworks",
-    items: [
-      { name: 'Firebase', logo: '/images/skills/firebase.svg' },
-      { name: 'Flask', logo: '/images/skills/flask.svg' },
-      { name: 'Express', logo: '/images/skills/express.svg' },
-      { name: 'Django', logo: '/images/skills/django.svg' },
-    ]
-  },
-  {
-    title: "Other Skills",
+    title: "Tools",
     items: [
       { name: 'Git', logo: '/images/skills/git.svg' },
-      { name: 'Docker', logo: '/images/skills/docker.svg' },
       { name: 'PostgreSQL', logo: '/images/skills/postgresql.svg' },
+      { name: 'Linux', logo: '/images/skills/linux.svg' },
+      { name: 'PowerShell', logo: '/images/skills/powershell.svg' },
     ]
   }
 ];

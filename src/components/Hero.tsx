@@ -11,35 +11,34 @@ const MinimalistDecoration = () => {
   return (
     <Box sx={{
       position: 'absolute',
-      right: { xs: '-30px', md: '5%' },
-      top: { xs: '5%', md: '50%' },
+      right: { xs: '-50px', md: '10%' },
+      top: { xs: '10%', md: '50%' },
       transform: { md: 'translateY(-50%)' },
       display: { xs: 'none', md: 'block' },
       zIndex: 0,
-      width: { md: '400px', lg: '600px' },
+      width: { md: '350px', lg: '500px' },
     }}>
       <Box sx={{ 
         display: 'flex',
         flexWrap: 'wrap',
-        gap: 3
+        gap: 2
       }}>
-        {[1, 2, 3, 4].map((index) => (
+        {[...Array(5)].map((_, index) => (
           <Box
             key={index}
             sx={{
-              width: 'calc(50% - 12px)',
-              height: index % 3 === 0 ? '250px' : '200px',
-              borderRadius: index % 2 === 0 ? '8px' : '50%', // Mix of squares and circles
-              background: '#f5f5f5',
-              border: '1px solid rgba(0, 0, 0, 0.1)',
-              transform: index % 2 ? 'translateY(30px)' : 'none',
-              boxShadow: '0 5px 15px rgba(0,0,0,0.05)',
-              opacity: 0.85,
-              transition: 'all 0.4s ease',
+              width: `calc(${Math.random() * 30 + 20}% - 8px)`,
+              height: `${Math.random() * 100 + 100}px`,
+              borderRadius: '12px',
+              background: 'rgba(0, 123, 255, 0.05)',
+              border: '1px solid rgba(0, 123, 255, 0.1)',
+              transform: `translateY(${Math.random() * 40 - 20}px)`,
+              boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+              transition: 'all 0.3s ease-in-out',
               '&:hover': {
-                transform: 'scale(1.05)',
-                opacity: 1,
-                boxShadow: '0 10px 20px rgba(0,0,0,0.08)'
+                transform: 'scale(1.08) translateY(-10px)',
+                background: 'rgba(0, 123, 255, 0.1)',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.1)'
               }
             }}
           />
@@ -68,7 +67,7 @@ const Hero: React.FC = () => {
         justifyContent: 'center',
         position: 'relative',
         overflow: 'hidden',
-        background: '#ffffff', // Pure white background
+        background: 'linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%)',
       }}
     >
       {/* Central content area */}
@@ -87,11 +86,11 @@ const Hero: React.FC = () => {
           sx={{
             mb: { xs: 3, md: 4 },
             fontWeight: 900,
-            fontSize: { xs: '4.2rem', sm: '6rem', md: '8rem', lg: '9.5rem' },
-            lineHeight: 0.95,
-            letterSpacing: { xs: '-0.05em', md: '-0.07em' },
+            fontSize: { xs: '3.8rem', sm: '5.5rem', md: '7.5rem', lg: '9rem' },
+            lineHeight: 1,
+            letterSpacing: { xs: '-0.04em', md: '-0.06em' },
             position: 'relative',
-            color: '#000000', // Pure black text
+            color: '#333333',
             display: 'inline-block',
           }}
         >
@@ -100,16 +99,16 @@ const Hero: React.FC = () => {
             className="highlight"
             sx={{
               position: 'relative',
-              color: '#6366f1', // Purple accent color for emphasis
+              color: '#007BFF', 
               '&::after': {
                 content: '""',
                 position: 'absolute',
                 width: '100%',
-                height: '8px',
+                height: '10px',
                 left: 0,
-                bottom: '8px',
-                background: "rgba(99, 102, 241, 0.15)", // Very subtle purple underline
-                borderRadius: '2px',
+                bottom: '5px',
+                background: "rgba(0, 123, 255, 0.1)",
+                borderRadius: '3px',
                 zIndex: -1,
               }
             }}
@@ -121,24 +120,25 @@ const Hero: React.FC = () => {
           variant="h2" 
           sx={{ 
             fontWeight: 600, 
-            color: '#000000', // Pure black text
-            fontSize: { xs: '2.2rem', sm: '3rem', md: '4rem' },
+            color: '#333333',
+            fontSize: { xs: '2rem', sm: '2.8rem', md: '3.8rem' },
             letterSpacing: '-0.02em',
-            mb: { xs: 4, md: 6 } // Added margin at the bottom for better spacing
+            mb: { xs: 4, md: 6 }
           }}
         >
           I am a <Box 
             component="span" 
             fontWeight={800} 
             sx={{ 
-              color: '#000000', // Pure black text
+              color: '#007BFF',
               position: 'relative',
               display: 'inline-block',
-              minWidth: { xs: '180px', sm: '230px', md: '280px' },
-              borderBottom: '3px solid rgba(0, 0, 0, 0.2)' // Subtle underline
+              minWidth: { xs: '170px', sm: '220px', md: '270px' },
+              borderBottom: '4px solid rgba(0, 123, 255, 0.2)'
             }}
-          >            {text}
-            <Cursor cursorStyle="_" cursorColor="#000000" /> {/* Black cursor */}
+          >
+            {text}
+            <Cursor cursorStyle="_" cursorColor="#007BFF" />
           </Box>
         </Typography>
       </Box>
