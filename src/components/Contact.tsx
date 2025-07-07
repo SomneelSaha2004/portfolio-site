@@ -49,7 +49,7 @@ const Contact: React.FC = () => {
         <Button
           variant="contained"
           size="large"
-          href="/resume.pdf"
+          href="/portfolio-site/resume.pdf"
           target="_blank"
           startIcon={<DownloadIcon sx={{ fontSize: { xs: '1.4rem', md: '1.6rem' } }} />}
           sx={{
