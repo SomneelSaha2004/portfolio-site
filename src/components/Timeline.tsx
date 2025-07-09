@@ -283,7 +283,7 @@ const CombinedTimeline: React.FC = () => {
                   }}
                 >                  <Box 
                     component="img" 
-                    src={`/images/${
+                    src={`./images/${
                       item.type === 'education' ? 
                         (item.institution.includes('Singapore') ? 'National_University_of_Singapore-Logo.wine.svg' : 'ShriRamLogo.png') : 
                         (item.company.includes('ContractKen') ? 'contractken.png' : 'mathlogic-logo-1.png')
