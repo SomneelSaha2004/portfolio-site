@@ -1,5 +1,5 @@
 // src/App.tsx
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import Hero from './components/Hero';
 import CombinedTimeline from './components/Timeline';
 import Projects from './components/Projects';

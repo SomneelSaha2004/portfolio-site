@@ -1,5 +1,5 @@
 // src/theme.ts
-import { createTheme, responsiveFontSizes, alpha } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
 // Minimalist black and white scheme with accent color
 const accentColor = '#6366f1'; // Purple accent for emphasis only

@@ -5,8 +5,6 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
-import { useTheme } from '@mui/material/styles';
-import { alpha } from '@mui/material/styles';
 
 // Icons
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -15,7 +13,6 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import DownloadIcon from '@mui/icons-material/Download';
 
 const Contact: React.FC = () => {
-  const theme = useTheme();
   return (
     <Box 
       id="contact"

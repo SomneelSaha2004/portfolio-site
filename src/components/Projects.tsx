@@ -8,9 +8,7 @@ import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import { useTheme } from '@mui/material/styles';
 import CardMedia from '@mui/material/CardMedia';
-import LinkIcon from '@mui/icons-material/Link';
 import CodeIcon from '@mui/icons-material/Code';
 
 interface ProjectData {
@@ -45,7 +43,6 @@ const projectsData: ProjectData[] = [
 ];
 
 const Projects: React.FC = () => {
-  const theme = useTheme();
   
   return (
     <Box 
