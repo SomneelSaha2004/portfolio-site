@@ -100,8 +100,7 @@ const App: React.FC = () => {
   return (
     <Box sx={{ 
       position: 'relative',
-      height: '100vh', // Fixed height
-      overflow: 'hidden', // Hide overflow
+      minHeight: '100vh', // Use min-height instead of fixed height
       background: '#ffffff' // Pure white background
     }}>
       {/* Background decorations */}
@@ -115,22 +114,13 @@ const App: React.FC = () => {
           zIndex: 1,
           width: '100%',
           maxWidth: '100vw',
-          height: '100vh', // Set container to viewport height
-          overflowY: 'scroll', // Enable scrolling
-          scrollSnapType: 'y mandatory', // Enable scroll snapping on the y-axis
-          scrollBehavior: 'smooth', // Smooth scrolling animation
-          '&::-webkit-scrollbar': {
-            display: 'none' // Hide scrollbar for Chrome/Safari
-          },
-          scrollbarWidth: 'none', // Hide scrollbar for Firefox
-          msOverflowStyle: 'none' // Hide scrollbar for IE/Edge
+          scrollBehavior: 'smooth' // Keep smooth scrolling
         }}
       >
         {/* Landing section */}
         <Box 
           sx={{
-            scrollSnapAlign: 'start', // Snap to this section
-            height: '100vh', // Full viewport height
+            minHeight: '100vh', // Use min-height for flexibility
             width: '100%',
             color: 'black' // Black text for minimalist theme
           }}
@@ -138,13 +128,13 @@ const App: React.FC = () => {
           <Hero />
         </Box>
         
-        {/* Content sections with full width and snap scrolling */}
+        {/* Content sections with full width */}
         <Box 
           sx={{ 
             width: '100%', 
             color: 'black',
-            scrollSnapAlign: 'start', // Snap to this section
-            minHeight: '100vh', // At least full viewport height
+            minHeight: '80vh', // Flexible height
+            py: 4 // Add some padding
           }}
         >
           <CombinedTimeline />
@@ -154,8 +144,8 @@ const App: React.FC = () => {
           sx={{ 
             width: '100%', 
             color: 'black',
-            scrollSnapAlign: 'start', // Snap to this section
-            minHeight: '100vh', // At least full viewport height
+            minHeight: '80vh', // Flexible height
+            py: 4 // Add some padding
           }}
         >
           <Projects />
@@ -165,8 +155,8 @@ const App: React.FC = () => {
           sx={{ 
             width: '100%', 
             color: 'black',
-            scrollSnapAlign: 'start', // Snap to this section
-            minHeight: '100vh', // At least full viewport height
+            minHeight: '80vh', // Flexible height
+            py: 4 // Add some padding
           }}
         >
           <Skills />
@@ -176,8 +166,8 @@ const App: React.FC = () => {
           sx={{ 
             width: '100%', 
             color: 'black',
-            scrollSnapAlign: 'start', // Snap to this section
-            minHeight: '100vh', // At least full viewport height
+            minHeight: '60vh', // Smaller height for contact
+            py: 4 // Add some padding
           }}
         >
           <Contact />

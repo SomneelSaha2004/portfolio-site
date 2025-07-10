@@ -27,17 +27,13 @@ a:hover {
 body {
   margin: 0;
   padding: 0;
-  display: flex;
   width: 100%;
   min-width: 320px;
-  height: 100vh;
-  overflow: hidden; /* Prevent scrolling on the body */
+  min-height: 100vh;
 }
 
 html {
   scroll-behavior: smooth; /* Enable smooth scrolling */
-  height: 100%;
-  overflow: hidden;
 }
 
 h1 {
@@ -66,26 +62,9 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
-/* Page scrolling styles */
-.section-container {
-  scroll-snap-align: start;
-  height: 100vh;
-  width: 100%;
-  position: relative;
-}
+/* Remove scroll snap and overflow hiding for better mobile compatibility */
 
-/* Hide scrollbars but keep functionality */
+/* Keep smooth scrolling for better UX */
 * {
-  scrollbar-width: none; /* Firefox */
-}
-
-*::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
-}
-
-/* For iOS Safari */
-@supports (-webkit-overflow-scrolling: touch) {
-  body, html, .main-scroll-container {
-    -webkit-overflow-scrolling: touch;
-  }
+  box-sizing: border-box;
 }
